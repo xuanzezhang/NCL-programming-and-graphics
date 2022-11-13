@@ -4,8 +4,8 @@ load "$NCARG_ROOT/lib/ncarg/nclscripts/csm/gsn_csm.ncl"
 load "$NCARG_ROOT/lib/ncarg/nclscripts/csm/contributed.ncl"
 begin
 
-Startyr=1979
-Endyr=1980
+Startyr=2011
+Endyr=2019
 
 year=ispan(Startyr,Endyr,1)
 nyear=Endyr-Startyr+1
@@ -21,7 +21,7 @@ nmonth=12
 varname=(/"hurs","huss","pr","prsn","ps","psl","rlds","rsds","sfcWind","tas","tasmax","tasmin"/)
 nvar=dimsizes(varname)
 
- do ivar= 0, 0 ;nvar-1
+ do ivar= 0, nvar-1
    print(varname(ivar))
 
  do imodel= 0, nmodel -1
@@ -71,6 +71,7 @@ nvar=dimsizes(varname)
 
   end do
 
+  delete(fin)
   delete(data)
   delete(data_avg)
 
